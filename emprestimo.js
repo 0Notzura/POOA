@@ -8,7 +8,6 @@ const {
 
 let bibliotecário1= BibliotecarioFactory.criarUsuario('12345678901', 'Maria Oliveira', new Credenciais('maria.oliveira', 'senha456'))
 let cliente1=bibliotecário1.cadastrarUsuario('12345678900', 'João da Silva', new Credenciais('joao.silva', 'senha123'))
-// Criando uma instância de acervo (supondo que já existe)
 let acervo = Acervo.getInstance();
 
 // Definindo um tipo de livro e adicionando ao acervo
