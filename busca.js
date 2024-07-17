@@ -29,8 +29,6 @@ acervo.adicionarLivro(bibliotecario1, tipoLivro2, livro2);
 // Criando uma instância de cliente utilizando a factory
 let cliente1 = ClienteFactory.criarUsuario('12345678900', 'João da Silva', new Credenciais('joao.silva', 'senha123'));
 
-// Criando uma instância de acervo (supondo que já existe)
-
 // Realizando buscas por diferentes critérios
 console.log('Buscando por título "Harry Potter e a Pedra Filosofal":');
 let livrosPorTitulo = cliente1.encontrarLivroPorCaracteristica('Harry Potter e a Pedra Filosofal', new BuscaPorTitulo());
