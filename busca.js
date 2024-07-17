@@ -1,6 +1,5 @@
 // Importando as classes necessárias do seu módulo POOA.js
 const {
-    ClienteFactory,
     Acervo,
     BuscaPorTitulo,
     BuscaPorAutor,
@@ -14,7 +13,7 @@ const {
 
 let acervo = Acervo.getInstance();
 
-bibliotecario1 = BibliotecarioFactory.criarUsuario('12345678901', 'Maria Oliveira', new Credenciais('maria.oliveira', 'senha456'))
+let bibliotecario1 = BibliotecarioFactory.criarUsuario('12345678901', 'Maria Oliveira', new Credenciais('maria.oliveira', 'senha456'))
 
 let tipoLivro1 = new TipoLivro('Harry Potter e a Pedra Filosofal', 'J.K. Rowling','Fantasia', 1997);
 let livro1 = new Livro();
@@ -27,7 +26,7 @@ tipoLivro2.adicionar(livro2);
 acervo.adicionarLivro(bibliotecario1, tipoLivro2, livro2);
 
 // Criando uma instância de cliente utilizando a factory
-let cliente1 = ClienteFactory.criarUsuario('12345678900', 'João da Silva', new Credenciais('joao.silva', 'senha123'));
+let cliente1 = bibliotecário1.cadastrarUsuario('12345678900', 'João da Silva', new Credenciais('joao.silva', 'senha123'))
 
 // Realizando buscas por diferentes critérios
 console.log('Buscando por título "Harry Potter e a Pedra Filosofal":');
