@@ -8,10 +8,9 @@ const {
 } = require('./POOA.js');
 
 
-// Criando uma instância de cliente utilizando a factory
+// Criando uma instância de cliente 
 let bibliotecario1 =BibliotecarioFactory.criarUsuario('12345678901', 'Maria Oliveira', new Credenciais('maria.oliveira', 'senha456'))
 
-// Criando uma instância de acervo (supondo que já existe)
 let acervo = Acervo.getInstance();
 let tipoLivro1 = new TipoLivro('Harry Potter e a Pedra Filosofal', 'J.K. Rowling','Fantasia', 1997);
 let livro1 = new Livro();
