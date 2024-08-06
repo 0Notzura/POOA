@@ -1,0 +1,44 @@
+{
+  "tipoLivros": [
+    {
+      "livros": [
+        {
+          "disponível": true,
+          "id": 1
+        },
+        {
+          "disponível": true,
+          "id": 1
+        },
+        {
+          "disponível": true,
+          "id": 1
+        }
+      ],
+      "titulo": "Livro A",
+      "autor": "Autor A",
+      "genero": "Ficção",
+      "anoPublicacao": 2023
+    },
+    {
+      "livros": [
+        {
+          "disponível": true,
+          "id": 2
+        },
+        {
+          "disponível": true,
+          "id": 2
+        },
+        {
+          "disponível": true,
+          "id": 2
+        }
+      ],
+      "titulo": "Livro B",
+      "autor": "Autor B",
+      "genero": "Não-Ficção",
+      "anoPublicacao": 2022
+    }
+  ]
+}
