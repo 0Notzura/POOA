@@ -22,7 +22,7 @@ public class Main {
             System.out.println("Livro ID: " + emprestimo.getLivro().getId() + ", Data do Empréstimo: " + emprestimo.getDataEmprestimo());
         }
 
-        // Cliente tenta devolver o livro
+        // Cliente tenta devolver livro
         acervo.devolverLivro(cliente, livro.getId());
     }
 }
