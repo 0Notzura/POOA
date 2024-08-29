@@ -11,6 +11,7 @@ public class Acervo {
 
     private Acervo() {
         this.tipoLivros = new ArrayList<>();
+        this.separados = new ArrayList<>();
     }
 
     public static Acervo getInstance() {
@@ -71,7 +72,7 @@ public class Acervo {
             if (emprestimo.getLivro().getId() == idLivro) {
                 
                 emprestimo.setDataDevolucao(new Date());
-                System.out.print("Livro " + idLivro + " foi devolvido,");
+                System.out.println("Livro " + idLivro + " foi devolvido,");
                 for (TipoLivro tipoLivro : tipoLivros) {
                     for (Livro livro : tipoLivro.visualizar()) {
                         if (livro.getId() == idLivro){
@@ -80,7 +81,7 @@ public class Acervo {
                                 System.out.println("e está disponível.");
                             }else{
                                 tipoLivro.notificarDevolucao(livro, instance);
-                                System.out.println(" e ficará reservado.");
+                                //System.out.println(" e ficará reservado.");
                                 
                                 
                             }
@@ -99,15 +100,22 @@ public class Acervo {
 
     public void cancelarSeparacao(Separado separacao){
         separados.remove(separacao);     
-        System.out.println("o livro"+ separacao.getLivro().getId() +"não está mais separado para" + separacao.getCliente().getNome());  
+        System.out.println("o livro "+ separacao.getLivro().getId() +" não está mais separado para " + separacao.getCliente().getNome());  
     }
 
     public void separarLivro(Separado separacao){
         separados.add(separacao);
-        System.out.println("o livro"+ separacao.getLivro().getId() +"não está mais separado para" + separacao.getCliente().getNome());
+        System.out.println("o livro "+ separacao.getLivro().getId() +" foi separado para " + separacao.getCliente().getNome());
     }
 
     public List<TipoLivro> visualizarLivros() {
         return this.tipoLivros;
     }
+
+    public List<Separado> visualizarSeparacoes(){
+        return this.separados;
+
+    }
+
+
 }

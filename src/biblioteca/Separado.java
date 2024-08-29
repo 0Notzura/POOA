@@ -18,6 +18,7 @@ public class Separado {
     }
 
     public void efetivar(Acervo acervo){
+        livro.setDisponivel(true);
         cliente.alugarLivro(livro, acervo);
         this.cancelar(acervo);
     }

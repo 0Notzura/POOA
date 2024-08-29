@@ -33,10 +33,14 @@ public class Espera  {
 
  
     public void atualizar(Livro livro, Acervo acervo) {
+
         
         this.diminuir();
+        
+        
         if(lugar==0){
             this.separar(livro, acervo);
+            
         }
     }
 }

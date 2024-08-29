@@ -64,7 +64,8 @@ public class TipoLivro  {
     public Espera fazerReserva(Cliente cliente){
         Espera espera = null;
         if(this.esgotado()){
-             espera = new Espera(cliente, this.tamanhofila());
+            espera = new Espera(cliente, this.tamanhofila()+1);
+            
             adicionarReserva(espera);
         }else{
             System.out.println("existem versões disponiveis para emprestimo, reserva não efetuada");
