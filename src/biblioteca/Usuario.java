@@ -1,6 +1,6 @@
 package biblioteca;
 
-public abstract class Usuario implements Observador {
+public abstract class Usuario {
     protected String cpf;
     protected String nome;
     protected Credenciais credenciais;
@@ -23,8 +23,6 @@ public abstract class Usuario implements Observador {
         return credenciais;
     }
 
-    @Override
-    public void atualizar(String mensagem) {
-        System.out.println("Notificação para " + nome + ": " + mensagem);
-    }
 }
+
+    

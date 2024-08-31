@@ -7,9 +7,11 @@ import java.util.List;
 public class Acervo {
     private static Acervo instance = null;
     private List<TipoLivro> tipoLivros;
+    private List<Separado> separados;
 
     private Acervo() {
         this.tipoLivros = new ArrayList<>();
+        this.separados = new ArrayList<>();
     }
 
     public static Acervo getInstance() {
@@ -68,15 +70,52 @@ public class Acervo {
     public void devolverLivro(Cliente cliente, int idLivro) {
         for (Emprestimo emprestimo : cliente.getHistoricoEmprestimos()) {
             if (emprestimo.getLivro().getId() == idLivro) {
-                emprestimo.getLivro().setDisponivel(true);
+                
                 emprestimo.setDataDevolucao(new Date());
-                System.out.println("Livro " + idLivro + " foi devolvido.");
+                System.out.println("Livro " + idLivro + " foi devolvido,");
+                for (TipoLivro tipoLivro : tipoLivros) {
+                    for (Livro livro : tipoLivro.visualizar()) {
+                        if (livro.getId() == idLivro){
+                            if(tipoLivro.semreserva()){
+                                emprestimo.getLivro().setDisponivel(true);
+                                System.out.println("e está disponível.");
+                            }else{
+                                tipoLivro.notificarDevolucao(livro, instance);
+                                //System.out.println(" e ficará reservado.");
+                                
+                                
+                            }
+
+                        }
+
+                    }
+
+                }
+                
+                
                 return;
             }
         }
     }
 
+    public void cancelarSeparacao(Separado separacao){
+        separados.remove(separacao);     
+        System.out.println("o livro "+ separacao.getLivro().getId() +" não está mais separado para " + separacao.getCliente().getNome());  
+    }
+
+    public void separarLivro(Separado separacao){
+        separados.add(separacao);
+        System.out.println("o livro "+ separacao.getLivro().getId() +" foi separado para " + separacao.getCliente().getNome());
+    }
+
     public List<TipoLivro> visualizarLivros() {
         return this.tipoLivros;
     }
+
+    public List<Separado> visualizarSeparacoes(){
+        return this.separados;
+
+    }
+
+
 }

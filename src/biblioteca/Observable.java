@@ -10,13 +10,21 @@ public class Observable {
         observadores.add(observador);
     }
 
-    public void notificarObservadores(String mensagem) {
+    public void removerObservador(Observador observador){
+
+    }
+
+    public void notificarObservadores(Livro livro, Acervo acervo) {
         for (Observador observador : observadores) {
-            observador.atualizar(mensagem);
+            observador.atualizar(livro, acervo);
         }
+    }
+
+    public Observador getPrimeirodaFila(){
+        return this.observadores.get(0);
     }
 }
 
 interface Observador {
-    void atualizar(String mensagem);
+    void atualizar(Livro livro, Acervo acervo);
 }

@@ -19,7 +19,7 @@ public class Cliente extends Usuario {
         Emprestimo emprestimo = acervo.alugarLivro(this, livro.getId());
         if (emprestimo != null) {
             historicoEmprestimos.add(emprestimo);
-            System.out.println("Livro " + livro.getId() + " foi alugado pelo cliente " + this.getNome());
+            //System.out.println("Livro " + livro.getId() + " foi alugado pelo cliente " + this.getNome());
         } else {
             System.out.println("O livro não pôde ser alugado.");
         }
@@ -28,6 +28,16 @@ public class Cliente extends Usuario {
     public void devolverLivro(int idLivro, Acervo acervo) {
         acervo.devolverLivro(this, idLivro);
         System.out.println("Livro " + idLivro + " foi devolvido pelo cliente " + this.getNome());
+    }
+
+    public void fazerReserva(TipoLivro tipoLivro ){
+        Espera espera = tipoLivro.fazerReserva(this);
+        if (espera==null){
+            System.out.println("Reserva não efetuada");
+        }else{
+            System.err.println("Reserva efetuada");
+        }
+
     }
 
     public List<Emprestimo> visualizarLivrosAlugados() {
